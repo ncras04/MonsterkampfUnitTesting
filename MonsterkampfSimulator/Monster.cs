@@ -8,9 +8,9 @@ namespace MonsterkampfSimulator
 {
     public abstract class Monster
     {
-        public float HP { get; private set; }
-        public float AP { get; private set; }
-        public float DP { get; private set; }
+        public float HP;
+        public float AP;
+        public float DP;
 
         public Monster(float _hp, float _ap, float _dp)
         {
@@ -29,32 +29,9 @@ namespace MonsterkampfSimulator
             DP = _dp;
         }
 
-        public void TakeDamage(float _damageAmount)
-        {
-            float tempDMG;
-            tempDMG = _damageAmount - DP;
+        public abstract void TakeDamage(float _damageAmount);
 
-            if (tempDMG < 0)
-            {
-                HP = HP;
-            }
-            else
-            {
-                HP = HP - tempDMG;
-            }
 
-            if (HP < 0)
-            {
-                HP = 0;
-            }
-         
-        }
-
-        public void Attack(Monster _monster)
-        {
-            float damageAmount = AP;
-
-            _monster.TakeDamage(damageAmount);
-        }
+        public abstract void Attack(Monster _monster);
     }
 }
