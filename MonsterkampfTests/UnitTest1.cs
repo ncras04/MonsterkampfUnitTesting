@@ -39,6 +39,18 @@ namespace MonsterkampfTests
             //Assert
             Assert.AreEqual(0, mon.HP);
         }
+        [Test]
+        public void TakeDamage_MonsterHasDP_ReducesIncomingDMGByDP()
+        {
+            //Arrange
+            Monster mon = new(50, 20, 10);
+            float dmgAmount = 30f;
 
+            //Act
+            mon.TakeDamage(dmgAmount);
+
+            //Assert
+            Assert.AreEqual(30f, mon.HP);
+        }
     }
 }
