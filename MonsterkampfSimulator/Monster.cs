@@ -22,6 +22,11 @@ namespace MonsterkampfSimulator
         public void TakeDamage(float _damageAmount)
         {
             HP = HP - (_damageAmount);
+
+            if (HP < 0)
+            {
+                HP = 0;
+            }
         }
 
         public void Attack(Monster _monster)
