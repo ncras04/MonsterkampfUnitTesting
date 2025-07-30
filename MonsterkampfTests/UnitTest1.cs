@@ -67,5 +67,22 @@ namespace MonsterkampfTests
             //Assert
             Assert.AreEqual(40f, defender.HP);
         }
+        [Test]
+
+        public void MonsterConstructor_GetsValueForHP_HPAbove30AndUnder100()
+        {
+            //Arrange
+            Monster mon = new Monster(120, 0, 0);
+            Monster mon2 = new Monster(20, 0, 0);
+
+            //Act
+            float monsterMaxHP = mon.HP;
+            float monsterMinHP = mon2.HP;
+
+            //Assert
+            Assert.AreEqual(100, mon.HP);
+            Assert.AreEqual(30, mon2.HP);
+        }
+        
     }
 }
