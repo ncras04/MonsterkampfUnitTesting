@@ -31,7 +31,8 @@ namespace MonsterkampfSimulator
 
         public void Attack(Monster _monster)
         {
-
+            float damageAmount = AP;
+            _monster.TakeDamage(damageAmount);
         }
     }
 }
