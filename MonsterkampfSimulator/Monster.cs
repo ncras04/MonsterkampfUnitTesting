@@ -21,7 +21,7 @@ namespace MonsterkampfSimulator
 
         public void TakeDamage(float _damageAmount)
         {
-            HP = HP - (_damageAmount);
+            HP = HP - (_damageAmount - DP);
 
             if (HP < 0)
             {
