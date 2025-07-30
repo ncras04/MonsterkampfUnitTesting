@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using MonsterkampfSimulator;
 namespace MonsterkampfTests
     
@@ -102,15 +103,16 @@ namespace MonsterkampfTests
         public void Attack_MonsterAttacksItself_CannotAttackItself()
         {
             //Arrange
-            Orc mon = new(50, 20, 10);
-            Monster attacker = mon;
-            Monster defender = mon;
+            Monster mon1 = new Orc(50, 20, 10);
+            Monster mon2 = new Troll(50, 20, 10);
 
             //Act
-            attacker.Attack(defender);
+            bool isValid = MonsterkampfSimulator.Program.CheckValidMonster(mon1, mon1);
+            bool isNotValid = MonsterkampfSimulator.Program.CheckValidMonster(mon1, mon1);
 
             //Assert
-            Assert.AreNotEqual(attacker, defender);
+            Assert.IsTrue(isValid);
+            Assert.IsFalse(isNotValid);
         }
 
     }

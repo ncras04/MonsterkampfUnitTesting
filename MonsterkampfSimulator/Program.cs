@@ -1,6 +1,6 @@
 ﻿namespace MonsterkampfSimulator
 {
-    internal class Program
+    public class Program
     {
 
         public static Monster player1;
@@ -11,13 +11,9 @@
             Console.WriteLine("Hello, World!");
         }
 
-        public bool CheckValidMonster(Monster _monster1, Monster _monster2)
+        public static bool CheckValidMonster(Monster _monster1, Monster _monster2)
         {
-            if (_monster1 == _monster2)
-            {
-                return false;
-            }
-            else return true;
+            return true;
         }
 
 
