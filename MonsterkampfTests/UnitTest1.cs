@@ -100,20 +100,33 @@ namespace MonsterkampfTests
         }
 
         [Test]
-        public void Attack_MonsterAttacksItself_CannotAttackItself()
+        public void CheckValidMonster_SameMonsterTypeCreated_ReturnsFalse()
+        {
+            //Arrange
+            Monster mon1 = new Orc(50, 20, 10);
+            Monster mon2 = new Orc(50, 20, 10);
+
+            //Act
+            var result = MonsterkampfSimulator.Program.CheckValidMonster(mon1, mon2);
+
+            //Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void CheckValidMonster_DifferentMonsterTypeCreated_ReturnsTrue()
         {
             //Arrange
             Monster mon1 = new Orc(50, 20, 10);
             Monster mon2 = new Troll(50, 20, 10);
 
             //Act
-            bool isValid = MonsterkampfSimulator.Program.CheckValidMonster(mon1, mon1);
-            bool isNotValid = MonsterkampfSimulator.Program.CheckValidMonster(mon1, mon1);
+            var result = MonsterkampfSimulator.Program.CheckValidMonster(mon1, mon2);
 
             //Assert
-            Assert.IsTrue(isValid);
-            Assert.IsFalse(isNotValid);
+            Assert.IsTrue(result);
         }
+
 
     }
 }
