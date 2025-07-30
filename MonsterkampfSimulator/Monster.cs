@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonsterkampfSimulator
 {
-    public class Monster
+    public abstract class Monster
     {
         public float HP { get; private set; }
         public float AP { get; private set; }
