@@ -20,10 +20,12 @@ namespace MonsterkampfTests
             //Arrange
             float dmgAmount = 10;
             Monster mon = new (50,20,10);
+
             //Act
             mon.TakeDamage(dmgAmount);
+
             //Assert
-            Assert.AreEqual(40, mon.HP);
+            Assert.AreEqual(50, mon.HP);
         }
 
         [Test]
@@ -51,6 +53,19 @@ namespace MonsterkampfTests
 
             //Assert
             Assert.AreEqual(30f, mon.HP);
+        }
+        [Test]
+        public void Attack_GetsDefenderAsParameter_CallsDefendersTakeDamageMethod()
+        {
+            //Arrange
+            Monster attacker = new Monster(50, 10, 0);
+            Monster defender = new Monster(50, 10, 0);
+
+            //Act
+            attacker.Attack(defender);
+
+            //Assert
+            Assert.AreEqual(40f, defender.HP);
         }
     }
 }
