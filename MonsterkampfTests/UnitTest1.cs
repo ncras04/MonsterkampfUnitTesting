@@ -23,7 +23,7 @@ namespace MonsterkampfTests
             //Act
             mon.TakeDamage(dmgAmount);
             //Assert
-            Assert.Equals(mon.HP, 40f);
+            Assert.AreEqual(40, mon.HP);
 
         }
 
