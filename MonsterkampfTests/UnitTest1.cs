@@ -24,15 +24,20 @@ namespace MonsterkampfTests
             mon.TakeDamage(dmgAmount);
             //Assert
             Assert.AreEqual(40, mon.HP);
-
         }
 
         [Test]
-        public void TakeDamage_GetsNegativeValue_ReturnsZero()
+        public void TakeDamage_GetsMoreDmgThenHPAvailabe_SetsHPZero()
         {
             //Arrange
+            float dmgAmount = 60f;
+            Monster mon = new(50, 20, 10);
+
             //Act
+            mon.TakeDamage(dmgAmount);
+
             //Assert
+            Assert.AreEqual(0, mon.HP);
         }
 
     }
