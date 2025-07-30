@@ -1,4 +1,6 @@
+using MonsterkampfSimulator;
 namespace MonsterkampfTests
+    
 {
     public class Tests
     {
@@ -13,11 +15,25 @@ namespace MonsterkampfTests
             Assert.Pass();
         }
         [Test]
+        public void TakeDamage_GetsValue_ReducesHPbyValue()
+        {
+            //Arrange
+            float dmgAmount = 10;
+            Monster mon = new (50,20,10);
+            //Act
+            mon.TakeDamage(dmgAmount);
+            //Assert
+            Assert.Equals(mon.HP, 40f);
+
+        }
+
+        [Test]
         public void TakeDamage_GetsNegativeValue_ReturnsZero()
         {
             //Arrange
             //Act
             //Assert
         }
+
     }
 }
