@@ -14,12 +14,14 @@ namespace MonsterkampfSimulator
 
         public Monster(float _hp, float _ap, float _dp)
         {
-
+            HP = _hp;
+            AP = _ap;
+            DP = _dp;
         }
 
         public void TakeDamage(float _damageAmount)
         {
-
+            HP = HP - (_damageAmount);
         }
 
         public void Attack(Monster _monster)
