@@ -55,6 +55,20 @@ namespace MonsterkampfTests
             Assert.AreEqual(30f, mon.HP);
         }
         [Test]
+        public void TakeDamage_DefenderHasMoreDPThanIncomingDmg_SetsDmgAmountNotNegative()
+        {
+            //Arrange
+            Monster attacker = new(50, 10, 10);
+            Monster defender = new(50, 10, 30);
+
+            //Act
+            attacker.Attack(defender);
+
+            //Assert
+            Assert.AreEqual(50, defender.HP);
+        }
+
+        [Test]
         public void Attack_GetsDefenderAsParameter_CallsDefendersTakeDamageMethod()
         {
             //Arrange
@@ -83,6 +97,5 @@ namespace MonsterkampfTests
             Assert.AreEqual(100, mon.HP);
             Assert.AreEqual(30, mon2.HP);
         }
-        
     }
 }
