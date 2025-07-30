@@ -19,7 +19,7 @@ namespace MonsterkampfTests
         {
             //Arrange
             float dmgAmount = 10;
-            Monster mon = new (50,20,10);
+            Orc mon = new (50,20,10);
 
             //Act
             mon.TakeDamage(dmgAmount);
@@ -33,7 +33,7 @@ namespace MonsterkampfTests
         {
             //Arrange
             float dmgAmount = 60f;
-            Monster mon = new(50, 20, 10);
+            Orc mon = new(50, 20, 10);
 
             //Act
             mon.TakeDamage(dmgAmount);
@@ -45,7 +45,7 @@ namespace MonsterkampfTests
         public void TakeDamage_MonsterHasDP_ReducesIncomingDMGByDP()
         {
             //Arrange
-            Monster mon = new(50, 20, 10);
+            Orc mon = new(50, 20, 10);
             float dmgAmount = 30f;
 
             //Act
@@ -58,8 +58,8 @@ namespace MonsterkampfTests
         public void TakeDamage_DefenderHasMoreDPThanIncomingDmg_SetsDmgAmountNotNegative()
         {
             //Arrange
-            Monster attacker = new(50, 10, 10);
-            Monster defender = new(50, 10, 30);
+            Orc attacker = new(50, 10, 10);
+            Troll defender = new(50, 10, 30);
 
             //Act
             attacker.Attack(defender);
@@ -72,8 +72,8 @@ namespace MonsterkampfTests
         public void Attack_GetsDefenderAsParameter_CallsDefendersTakeDamageMethod()
         {
             //Arrange
-            Monster attacker = new Monster(50, 10, 0);
-            Monster defender = new Monster(50, 10, 0);
+            Orc attacker = new(50, 10, 0);
+            Troll defender = new(50, 10, 0);
 
             //Act
             attacker.Attack(defender);
@@ -86,8 +86,8 @@ namespace MonsterkampfTests
         public void MonsterConstructor_GetsValueForHP_HPAbove30AndUnder100()
         {
             //Arrange
-            Monster mon = new Monster(120, 0, 0);
-            Monster mon2 = new Monster(20, 0, 0);
+            Orc mon = new(120, 0, 0);
+            Troll mon2 = new(20, 0, 0);
 
             //Act
             float monsterMaxHP = mon.HP;
@@ -97,5 +97,21 @@ namespace MonsterkampfTests
             Assert.AreEqual(100, mon.HP);
             Assert.AreEqual(30, mon2.HP);
         }
+
+        [Test]
+        public void Attack_MonsterAttacksItself_CannotAttackItself()
+        {
+            //Arrange
+            Orc mon = new(50, 20, 10);
+            Monster attacker = mon;
+            Monster defender = mon;
+
+            //Act
+            attacker.Attack(defender);
+
+            //Assert
+            Assert.AreNotEqual(attacker, defender);
+        }
+
     }
 }

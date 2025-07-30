@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonsterkampfSimulator
 {
-    class Orc : Monster
+    public class Orc : Monster
     {
         public Orc(float _hp, float _ap, float _dp) : base(_hp, _ap, _dp)
         {
