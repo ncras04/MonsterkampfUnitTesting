@@ -14,7 +14,17 @@ namespace MonsterkampfSimulator
 
         public Monster(float _hp, float _ap, float _dp)
         {
-            HP = _hp;
+            if (_hp > 100f)
+            {
+                HP = 100;
+            }
+            else if (_hp < 30f)
+            {
+                HP = 30;
+            }
+            else
+
+                HP = _hp;
             AP = _ap;
             DP = _dp;
         }
