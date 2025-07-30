@@ -31,17 +31,29 @@ namespace MonsterkampfSimulator
 
         public void TakeDamage(float _damageAmount)
         {
-            HP = HP - (_damageAmount - DP);
+            float tempDMG;
+            tempDMG = _damageAmount - DP;
+
+            if (tempDMG < 0)
+            {
+                HP = HP;
+            }
+            else
+            {
+                HP = HP - tempDMG;
+            }
 
             if (HP < 0)
             {
                 HP = 0;
             }
+         
         }
 
         public void Attack(Monster _monster)
         {
             float damageAmount = AP;
+
             _monster.TakeDamage(damageAmount);
         }
     }
