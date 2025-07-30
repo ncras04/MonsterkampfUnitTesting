@@ -12,5 +12,12 @@ namespace MonsterkampfTests
         {
             Assert.Pass();
         }
+        [Test]
+        public void TakeDamage_GetsNegativeValue_ReturnsZero()
+        {
+            //Arrange
+            //Act
+            //Assert
+        }
     }
 }
